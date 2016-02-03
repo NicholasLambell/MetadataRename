@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace MetadataRename {
     public partial class FormMain : Form {
@@ -142,7 +135,7 @@ namespace MetadataRename {
                     if (FileHandler.ApplyTags(fileList)) {
                         MessageBox.Show("All file metadata successfully applied");
                     } else {
-                        MessageBox.Show("Oops! Something went wrong, some of the files may not have their tag set.\nSome of the files may be an invalid type.", "Error!");
+                        MessageBox.Show("Something went wrong, some of the files may not have their tag set.\nSome of the files may be an invalid type.", "Oops!");
                     }
                 }
             } else {
