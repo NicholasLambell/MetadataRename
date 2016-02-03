@@ -131,12 +131,12 @@ namespace MetadataRename {
                     if (lstFiles.Items[i].Checked) {
                         fileList.Add(_files[i]);
                     }
-                    
-                    if (FileHandler.ApplyTags(fileList)) {
-                        MessageBox.Show("All file metadata successfully applied");
-                    } else {
-                        MessageBox.Show("Something went wrong, some of the files may not have their tag set.\nSome of the files may be an invalid type.", "Oops!");
-                    }
+                }
+
+                if (FileHandler.ApplyTags(fileList)) {
+                    MessageBox.Show("All file metadata successfully applied");
+                } else {
+                    MessageBox.Show("Something went wrong, some of the files may not have their tag set.\nSome of the files may be an invalid type.", "Oops!");
                 }
             } else {
                 MessageBox.Show("Please select at least one file before applying changes", "Error!");
