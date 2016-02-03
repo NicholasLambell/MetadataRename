@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.lstFiles = new System.Windows.Forms.ListView();
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,6 +131,7 @@
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.lstFiles);
             this.Controls.Add(this.mnuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuStrip;
             this.MinimumSize = new System.Drawing.Size(406, 472);
             this.Name = "FormMain";
