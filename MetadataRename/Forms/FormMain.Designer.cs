@@ -74,7 +74,7 @@
             // mnuFileOpen
             // 
             this.mnuFileOpen.Name = "mnuFileOpen";
-            this.mnuFileOpen.Size = new System.Drawing.Size(152, 22);
+            this.mnuFileOpen.Size = new System.Drawing.Size(103, 22);
             this.mnuFileOpen.Text = "Open";
             this.mnuFileOpen.Click += new System.EventHandler(this.mnuFileOpen_Click);
             // 
@@ -133,7 +133,7 @@
             this.MainMenuStrip = this.mnuStrip;
             this.MinimumSize = new System.Drawing.Size(406, 472);
             this.Name = "FormMain";
-            this.Text = "Bulk Rename Utility";
+            this.Text = "Metadata Rename Utility";
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
