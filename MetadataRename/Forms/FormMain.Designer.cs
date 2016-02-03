@@ -31,11 +31,6 @@
             this.mnuSelAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDesel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuInvSel = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFilter = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFilterEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFilterClear = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFilterSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFilterLoad = new System.Windows.Forms.ToolStripMenuItem();
             this.btnApply = new System.Windows.Forms.Button();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -61,8 +56,7 @@
             // 
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
-            this.mnuSelect,
-            this.mnuFilter});
+            this.mnuSelect});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
             this.mnuStrip.Size = new System.Drawing.Size(390, 24);
@@ -80,7 +74,7 @@
             // mnuFileOpen
             // 
             this.mnuFileOpen.Name = "mnuFileOpen";
-            this.mnuFileOpen.Size = new System.Drawing.Size(103, 22);
+            this.mnuFileOpen.Size = new System.Drawing.Size(152, 22);
             this.mnuFileOpen.Text = "Open";
             this.mnuFileOpen.Click += new System.EventHandler(this.mnuFileOpen_Click);
             // 
@@ -115,45 +109,6 @@
             this.mnuInvSel.Text = "Invert Selection";
             this.mnuInvSel.Click += new System.EventHandler(this.mnuInvSel_Click);
             // 
-            // mnuFilter
-            // 
-            this.mnuFilter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFilterEdit,
-            this.mnuFilterClear,
-            this.mnuFilterSave,
-            this.mnuFilterLoad});
-            this.mnuFilter.Name = "mnuFilter";
-            this.mnuFilter.Size = new System.Drawing.Size(50, 20);
-            this.mnuFilter.Text = "Filters";
-            // 
-            // mnuFilterEdit
-            // 
-            this.mnuFilterEdit.Name = "mnuFilterEdit";
-            this.mnuFilterEdit.Size = new System.Drawing.Size(101, 22);
-            this.mnuFilterEdit.Text = "Edit";
-            this.mnuFilterEdit.Click += new System.EventHandler(this.mnuFilterEdit_Click);
-            // 
-            // mnuFilterClear
-            // 
-            this.mnuFilterClear.Name = "mnuFilterClear";
-            this.mnuFilterClear.Size = new System.Drawing.Size(101, 22);
-            this.mnuFilterClear.Text = "Clear";
-            this.mnuFilterClear.Click += new System.EventHandler(this.mnuFilterClear_Click);
-            // 
-            // mnuFilterSave
-            // 
-            this.mnuFilterSave.Name = "mnuFilterSave";
-            this.mnuFilterSave.Size = new System.Drawing.Size(101, 22);
-            this.mnuFilterSave.Text = "Save";
-            this.mnuFilterSave.Click += new System.EventHandler(this.mnuFilterSave_Click);
-            // 
-            // mnuFilterLoad
-            // 
-            this.mnuFilterLoad.Name = "mnuFilterLoad";
-            this.mnuFilterLoad.Size = new System.Drawing.Size(101, 22);
-            this.mnuFilterLoad.Text = "Load";
-            this.mnuFilterLoad.Click += new System.EventHandler(this.mnuFilterLoad_Click);
-            // 
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -162,7 +117,7 @@
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(366, 23);
             this.btnApply.TabIndex = 2;
-            this.btnApply.Text = "Apply Filters";
+            this.btnApply.Text = "Apply Changes";
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
@@ -194,14 +149,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSelAll;
         private System.Windows.Forms.ToolStripMenuItem mnuDesel;
         private System.Windows.Forms.ToolStripMenuItem mnuInvSel;
-        private System.Windows.Forms.ToolStripMenuItem mnuFilter;
-        private System.Windows.Forms.ToolStripMenuItem mnuFilterEdit;
-        private System.Windows.Forms.ToolStripMenuItem mnuFilterSave;
-        private System.Windows.Forms.ToolStripMenuItem mnuFilterLoad;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ToolStripMenuItem mnuFile;
         private System.Windows.Forms.ToolStripMenuItem mnuFileOpen;
-        private System.Windows.Forms.ToolStripMenuItem mnuFilterClear;
     }
 }
 

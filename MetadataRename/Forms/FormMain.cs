@@ -126,37 +126,27 @@ namespace MetadataRename {
                 WriteList();
             }
         }
-
-        private void ClearFilters() {
-            if (MessageBox.Show("Are you sure you want to clear the filters?", "Clear Filters", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                _filterList = null;
-            }
-        }
         #endregion
 
         #region GUI Event Handlers
         private void btnApply_Click(object sender, EventArgs e) {
-            if (_filterList != null) {
-                if (_files.Count > 0) {
-                    List<FileInfo> fileList = new List<FileInfo>();
+            if (_files.Count > 0) {
+                List<FileInfo> fileList = new List<FileInfo>();
 
-                    //Add all checked items to file list
-                    for (int i = 0; i < lstFiles.Items.Count; i++) {
-                        if (lstFiles.Items[i].Checked) {
-                            fileList.Add(_files[i]);
-                        }
+                //Add all checked items to file list
+                for (int i = 0; i < lstFiles.Items.Count; i++) {
+                    if (lstFiles.Items[i].Checked) {
+                        fileList.Add(_files[i]);
                     }
-
-                    FilterHandler.ProcessFilters(_filterList, fileList);
-                    //
-                    //Make So File Names Are Updated. Try using built in MoveTo method then Refresh
-                    //
-                    RefreshItems();
-                } else {
-                    MessageBox.Show("Please select at least one file before applying filters", "Error!");
+                    
+                    if (FileHandler.ApplyTags(fileList)) {
+                        MessageBox.Show("All file metadata successfully applied");
+                    } else {
+                        MessageBox.Show("Oops! Something went wrong, some of the files may not have their tag set.\nSome of the files may be an invalid type.", "Error!");
+                    }
                 }
             } else {
-                MessageBox.Show("Please use the filters edit dialog to select filters first.", "Error!");
+                MessageBox.Show("Please select at least one file before applying changes", "Error!");
             }
         }
 
@@ -213,55 +203,6 @@ namespace MetadataRename {
         private void mnuInvSel_Click(object sender, EventArgs e) {
             foreach (ListViewItem item in lstFiles.Items) {
                 item.Checked = !item.Checked;
-            }
-        }
-
-        private void mnuFilterEdit_Click(object sender, EventArgs e) {
-            FormFilters frmFilters = new FormFilters(_filterList);
-
-            if (frmFilters.ShowDialog() == DialogResult.OK) {
-                _filterList = (FilterList)frmFilters.Tag;
-            }
-        }
-
-        private void mnuFilterClear_Click(object sender, EventArgs e) {
-            ClearFilters();
-        }
-
-        private void mnuFilterSave_Click(object sender, EventArgs e) {
-            if (_filterList != null) {
-                FilterFileHandler.Save(_filterList);
-            } else {
-                ErrorHandler.LogError("No filters selected. Please select some before trying to save", true);
-            }
-        }
-
-        private void mnuFilterLoad_Click(object sender, EventArgs e) {
-            //If filter list is already populated display dialog asking if the user would like to
-            //clear the list and load fresh or load in addition to the existing filters;
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "XML Files (*.xml)|*.xml";
-            fileDialog.FilterIndex = 1;
-
-            if (fileDialog.ShowDialog() == DialogResult.OK) {
-                FilterList loadFilters = FilterFileHandler.Load(fileDialog.FileName);
-
-                if (_filterList != null) {
-                    MessageBoxManager.Yes = "Merge";
-                    MessageBoxManager.No = "Override";
-                    MessageBoxManager.Register();
-                    DialogResult result = MessageBox.Show("Existing filters detected. Would you like to merge the new and existing filters or override them?",
-                        "Filter Options", MessageBoxButtons.YesNoCancel);
-                    MessageBoxManager.Unregister();
-
-                    if (result == DialogResult.Yes) {
-                        _filterList.Merge(loadFilters);
-                    } else if (result == DialogResult.No) {
-                        _filterList = loadFilters;
-                    }
-                } else {
-                    _filterList = loadFilters;
-                }
             }
         }
         #endregion
