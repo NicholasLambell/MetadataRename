@@ -10,6 +10,7 @@ namespace MetadataRename {
                     foreach (FileInfo file in files) {
                         TagLib.File tagFile = TagLib.File.Create(file.FullName);
                         tagFile.Tag.Title = Util.FileName(file.Name);
+                        tagFile.Tag.Comment = "";
                         tagFile.Save();
                     }
                 }
